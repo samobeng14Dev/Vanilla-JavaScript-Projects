@@ -27,7 +27,7 @@ async function fetchAPI(word) {
 			meaningContainerEl.style.display = "block";
 			audioEl.style.display = "inline-flex";
 			titleEl.innerText = result[0].word;
-			meaningEl.innerText = result[0].meanings[0].definitions[0].definition;
+			meaningEl.innerText = result[0].meanings[1].definitions[0].definition;
 
 			audioEl.src = result[0].phonetics[1].audio;
 		}
@@ -36,7 +36,7 @@ async function fetchAPI(word) {
 	}
 }
 inputEl.addEventListener("keyup", (e) => {
-	if (e.target.value && e.key == "Enter") {
-		fetchAPI(e.target.value);
+	if (e.currentTarget.value && e.key == "Enter") {
+		fetchAPI(e.currentTarget.value);
 	}
 });
